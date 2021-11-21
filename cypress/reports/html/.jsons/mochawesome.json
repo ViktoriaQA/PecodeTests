@@ -1,0 +1,209 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 4,
+    "pending": 0,
+    "failures": 2,
+    "start": "2021-11-21T02:14:08.271Z",
+    "end": "2021-11-21T02:14:25.475Z",
+    "duration": 17204,
+    "testsRegistered": 6,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "31d58d7a-f5a0-44ec-a122-6d196e279f7d",
+      "title": "",
+      "fullFile": "cypress/integration/login.js",
+      "file": "cypress/integration/login.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e6dc9884-21ea-4c1b-92fb-bb9777ec278e",
+          "title": "Login Pecode Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Show image logo, headlines, login form, login button on the login page",
+              "fullTitle": "Login Pecode Tests Show image logo, headlines, login form, login button on the login page",
+              "timedOut": null,
+              "duration": 1586,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#logomini').should('exist');\ncy.get('#logomini').invoke('attr', 'src').should('contain', img_logo);\ncy.get('h1').should('have.length', 1).and('have.text', login_page_text);\nloginPage.getUserName().invoke('attr', 'placeholder').should('contain', username_text);\nloginPage.getPassword().invoke('attr', 'placeholder').should('contain', password_text);\nloginPage.getLoginButton().should('be.visible').and('have.value', 'Login');",
+              "err": {},
+              "uuid": "c867845d-5078-4684-8c75-7920edbdd466",
+              "parentUUID": "e6dc9884-21ea-4c1b-92fb-bb9777ec278e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Show error message no account found for username=VikaQA",
+              "fullTitle": "Login Pecode Tests Show error message no account found for username=VikaQA",
+              "timedOut": null,
+              "duration": 790,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.getUserName().type(username).should('have.value', username);\nloginPage.getPassword().type(password, {\n  log: false\n});\nloginPage.getLoginButton().click();\ncy.url().should('contain', registerLoginPage);\ncy.get('.help-block').should('have.text', message_not_found_account);",
+              "err": {},
+              "uuid": "e8fa7be7-b974-405b-95e1-481d0fe0729d",
+              "parentUUID": "e6dc9884-21ea-4c1b-92fb-bb9777ec278e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Show invalid password message",
+              "fullTitle": "Login Pecode Tests Show invalid password message",
+              "timedOut": null,
+              "duration": 4992,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/login.js/Login Pecode Tests -- Show invalid password message (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "loginPage.getUserName().type(username).should('have.value', username);\nloginPage.getPassword().type(password, {\n  log: false\n});\nloginPage.getLoginButton().click();\ncy.url().should('contain', registerLoginPage);\ncy.get('.help-block').should('have.text', message_invalid_password);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '[ <span.help-block>, 1 more... ]' to have text 'The password you entered was not valid.', but the text was 'No account found with that username.'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '[ <span.help-block>, 1 more... ]' to have text 'The password you entered was not valid.', but the text was 'No account found with that username.'\n    at Context.eval (https://www.pecodesoftware.com/__cypress/tests?p=cypress/integration/login.js:170:27)",
+                "diff": "- 'No account found with that username.'\n+ 'The password you entered was not valid.'\n"
+              },
+              "uuid": "cd37aa9e-51ef-4c20-bcb3-f56c685d7de5",
+              "parentUUID": "e6dc9884-21ea-4c1b-92fb-bb9777ec278e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Show message for Incorrect login",
+              "fullTitle": "Login Pecode Tests Show message for Incorrect login",
+              "timedOut": null,
+              "duration": 563,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.getPassword().type(password, {\n  log: false\n});\nloginPage.getLoginButton().click();\ncy.url().should('contain', registerLoginPage);\ncy.get('.help-block').should('have.text', message_username);",
+              "err": {},
+              "uuid": "a91d5351-907a-419b-a4a3-45fdde1ea225",
+              "parentUUID": "e6dc9884-21ea-4c1b-92fb-bb9777ec278e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Show message with empty form fields",
+              "fullTitle": "Login Pecode Tests Show message with empty form fields",
+              "timedOut": null,
+              "duration": 2376,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.getLoginButton().click().wait(2000);\ncy.get('.help-block').first().should('have.text', message_username);\ncy.get('.help-block').last().should('have.text', message_password);\ncy.url().should('contain', registerLoginPage);",
+              "err": {},
+              "uuid": "2df7ffdd-2ed5-42c9-851a-5c5286b695d4",
+              "parentUUID": "e6dc9884-21ea-4c1b-92fb-bb9777ec278e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Valid user login and password VikaQA",
+              "fullTitle": "Login Pecode Tests Valid user login and password VikaQA",
+              "timedOut": null,
+              "duration": 5151,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/login.js/Login Pecode Tests -- Valid user login and password VikaQA (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "loginPage.getUserName().type(username);\nloginPage.getPassword().type(password);\nloginPage.getLoginButton().click(); //cy.get('body').should('have.text', message_err_page) // username = № & password = №  \ncy.get('.help-block').should('have.text', message_successfully); // user account page",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '[ <span.help-block>, 1 more... ]' to have text 'Successfully', but the text was 'No account found with that username.'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '[ <span.help-block>, 1 more... ]' to have text 'Successfully', but the text was 'No account found with that username.'\n    at Context.eval (https://www.pecodesoftware.com/__cypress/tests?p=cypress/integration/login.js:191:27)",
+                "diff": "- 'No account found with that username.'\n+ 'Successfully'\n"
+              },
+              "uuid": "9cc5b47e-fb9d-4aee-a4fc-2b516f188dba",
+              "parentUUID": "e6dc9884-21ea-4c1b-92fb-bb9777ec278e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c867845d-5078-4684-8c75-7920edbdd466",
+            "e8fa7be7-b974-405b-95e1-481d0fe0729d",
+            "a91d5351-907a-419b-a4a3-45fdde1ea225",
+            "2df7ffdd-2ed5-42c9-851a-5c5286b695d4"
+          ],
+          "failures": [
+            "cd37aa9e-51ef-4c20-bcb3-f56c685d7de5",
+            "9cc5b47e-fb9d-4aee-a4fc-2b516f188dba"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15458,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+
+{
+    "viewportWidth": 1240,
+    "viewportHeight": 960,
+    "//viewportWidth": 414,
+    "//viewportHeight": 736,
+    "projectId": "cc6ebh",
+    "chromeWebSecurity": false,
+    "reporter": "cypress-mochawesome-reporter",
+       
+    "env": {
+      "urlBase":"https://www.pecodesoftware.com",
+  
+      "username":"Franc",
+      "password":"teat"
+  
+      
+    }
+  }

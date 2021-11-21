@@ -1,0 +1,25 @@
+{
+  "name": "pecodetests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViktoriaQA/PecodeTests.git"
+  },
+  "author": "Frantsukh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViktoriaQA/PecodeTests/issues"
+  },
+  "homepage": "https://github.com/ViktoriaQA/PecodeTests#readme",
+  "devDependencies": {
+    "cypress": "^9.0.0",
+    "cypress-mochawesome-reporter": "^2.3.0",
+    "reporter": "mochawesome"
+  }
+}
