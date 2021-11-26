@@ -34,39 +34,45 @@ describe ('Login Pecode Tests', function(){
     cy.get('#logomini').should('exist')
     cy.get('#logomini').invoke('attr', 'src').should('contain', img_logo)
     cy.get('h1').should('have.length',1).and('have.text',login_page_text);
-    loginPage.getUsername().invoke('attr', 'placeholder').should('contain', username_text)
+    loginPage.getUserName().invoke('attr', 'placeholder').should('contain', username_text)
     loginPage.getPassword().invoke('attr', 'placeholder').should('contain', password_text)
     loginPage.getLoginButton().should('be.visible').and('have.value','Login')
   })
 
   it('Show error message no account found for username='+username, function(){
-    loginPage.performLogin(username, password);
-    cy.url().should('contain', registerLoginPage);
-    loginPage.getMessageUsername(message_not_found_account)
-
+    loginPage.getUserName().type(username).should('have.value',username)
+    loginPage.getPassword().type(password, {log: false})
+    loginPage.getLoginButton().click()
+    cy.url().should('contain', registerLoginPage)
+    cy.get('.help-block').should('have.text', message_not_found_account)
   })
 
   it('Show invalid password message', function(){
-    loginPage.performLogin(username, password);
+    loginPage.getUserName().type(username).should('have.value', username)
+    loginPage.getPassword().type(password,{log: false})
+    loginPage.getLoginButton().click()
     cy.url().should('contain', registerLoginPage)
-    loginPage.getMessagePasssword(message_invalid_password)
+    cy.get('.help-block').should('have.text', message_invalid_password)
   })  
  
   it('Show message for Incorrect login', function(){
-    loginPage.performLogin(username, password);
+    loginPage.getPassword().type(password,{log: false})
+    loginPage.getLoginButton().click()
     cy.url().should('contain', registerLoginPage)
     cy.get('.help-block').should('have.text', message_username)
   })
 
   it('Show message with empty form fields', function () {
-    loginPage.getLoginButton()
+    loginPage.getLoginButton().click().wait(2000)
     cy.get('.help-block').first().should('have.text', message_username)
     cy.get('.help-block').last().should('have.text', message_password)
     cy.url().should('contain', registerLoginPage)
   })
   
   it('Valid user login and password '+username, function() {
-    loginPage.performLogin(username, password);
+    loginPage.getUserName().type(username)
+    loginPage.getPassword().type(password)
+    loginPage.getLoginButton().click()
     //cy.get('body').should('have.text', message_err_page) // username = № & password = №  
     cy.get('.help-block').should('have.text', message_successfully)
     // user account page
