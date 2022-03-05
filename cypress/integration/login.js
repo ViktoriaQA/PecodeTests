@@ -14,7 +14,7 @@ const message_invalid_password = "The password you entered was not valid."      
 const message_not_found_account = "No account found with that username." 
 const message_err_page = "Oops! Something went wrong. Please try again later."  // username = № & password = №  
 
-const login_page_text ="QA Portal Login"
+const login_page_text ="AQA internship Login"
 const username_text ="Username"
 const password_text ="Password"
 
@@ -23,7 +23,6 @@ const img_logo = 'https://pecode-software.web.app/static/media/icon-logo.f8576d0
 describe ('Login Pecode Tests', function(){
 
   beforeEach('Login Page', () => {
-    const user_length = ''
     cy.visit(registerLoginPage)
     // cy.fixture('users').then(function (user) {
     //   this.user = user;
@@ -36,37 +35,37 @@ describe ('Login Pecode Tests', function(){
     cy.get('h1').should('have.length',1).and('have.text',login_page_text);
     loginPage.getUsername().invoke('attr', 'placeholder').should('contain', username_text)
     loginPage.getPassword().invoke('attr', 'placeholder').should('contain', password_text)
-    loginPage.getLoginButton().should('be.visible').and('have.value','Login')
+    loginPage.clickLoginButton()
   })
 
   it('Show error message no account found for username='+username, function(){
-    loginPage.performLogin(username, password);
+    loginPage.enterLogin(username, password);
     cy.url().should('contain', registerLoginPage);
-    loginPage.getMessageUsername(message_not_found_account)
+    loginPage.checkMessageUsername(message_not_found_account)
 
   })
 
   it('Show invalid password message', function(){
-    loginPage.performLogin(username, password);
+    loginPage.enterLogin(username, password);
     cy.url().should('contain', registerLoginPage)
-    loginPage.getMessagePasssword(message_invalid_password)
+    loginPage.checkMessagePassword(message_invalid_password)
   })  
  
   it('Show message for Incorrect login', function(){
-    loginPage.performLogin(username, password);
+    loginPage.enterLogin(username, password);
     cy.url().should('contain', registerLoginPage)
     cy.get('.help-block').should('have.text', message_username)
   })
 
   it('Show message with empty form fields', function () {
-    loginPage.getLoginButton()
+    loginPage.clickLoginButton()
     cy.get('.help-block').first().should('have.text', message_username)
     cy.get('.help-block').last().should('have.text', message_password)
     cy.url().should('contain', registerLoginPage)
   })
   
   it('Valid user login and password '+username, function() {
-    loginPage.performLogin(username, password);
+    loginPage.enterLogin(username, password);
     //cy.get('body').should('have.text', message_err_page) // username = № & password = №  
     cy.get('.help-block').should('have.text', message_successfully)
     // user account page

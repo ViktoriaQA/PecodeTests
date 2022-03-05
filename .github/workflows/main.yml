@@ -1,28 +1,48 @@
-name: Pecode Tests
-#off
+name: Create Cypress report
 on:
   push:
     branches:
-      - main
-jobs:
+      - 'master'
+  # Add this part if you want to schedule test rerun
+  # schedule:
+  #   - cron: '0 8 1-31 * *'
 
-  pecode-tests-run:
-    # ubuntu-latest - Firefox, windows-latest - edge, ubuntu-20.04 -chrome
-    runs-on: ubuntu-latest
+jobs:
+  
+  cypress-e2e-chrome81:
+    name: Run on Chrome 81
+    runs-on: ubuntu-18.04
+    container: cypress/browsers:node12.16.2-chrome81-ff75
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: pecode-tests-run
-        uses: cypress-io/github-action@v2
+      - uses: actions/checkout@v2
+      
+      - name: Install a project with a clean slate
+        run: |
+          npm ci
+          $(npm bin)/cypress cache path
+          $(npm bin)/cypress cache list
+          $(npm bin)/cypress verify
+      
+      - name: Run Cypress tests
+        run: npm run test:chrome
+        continue-on-error: true
+      
+      - name: Copy test execution videos
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
+      
+      - name: Merge test results into one
+        run: npm run report:merge
+      
+      - name: Generate HTML report
+        run: npm run report:generate
+      
+      - name: Deploy report page
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          start: npm start
-          record: true
-          # edge, firefox
-        env:
-          # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET_RECORD_KEY }}
-          # Recommended: pass the GitHub token lets this action correctly
-          # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET_RECORD_KEY }}
+          publish_dir: ./public
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
