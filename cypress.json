@@ -1,12 +1,18 @@
 
 {
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "configFile": "reporter-config.json"
+    },
+
+    "videoCompression": 15,
+
     "viewportWidth": 1240,
     "viewportHeight": 960,
-    "//viewportWidth": 414,
-    "//viewportHeight": 736,
+
     "projectId": "eps1yr",
     "chromeWebSecurity": false,
-    "reporter": "cypress-mochawesome-reporter",
+    "//reporter": "cypress-mochawesome-reporter",
        
     "env": {
       "urlBase":"https://www.pecodesoftware.com",
