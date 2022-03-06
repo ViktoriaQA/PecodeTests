@@ -1,19 +1,18 @@
 
  {
-    "viewportWidth": 1240,
-    "viewportHeight": 960,
-
-    "projectId": "eps1yr",
-    "chromeWebSecurity": false,       
     "baseUrl":"https://www.pecodesoftware.com",
-    
-    "username":"Franc",
-    "password":"test",
+    "chromeWebSecurity": false,      
+    "projectId": "eps1yr",
+    "experimentalStudio": true,
 
     "reporter": "cypress-mochawesome-reporter",
       "reporterOptions": {
-        "reportDir": "cypress/report",
+        "reportDir": "cypress/reports",
         "charts": true,
-        "reportPageTitle": "custom-title"
-      }
+        "reportPageTitle": "Pecode test",
+        "embeddedScreenshots": true
+      },
+        
+      "username":"Franc",
+      "password":"test"  
   }
