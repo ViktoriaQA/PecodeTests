@@ -24,7 +24,7 @@ jobs:
           $(npm bin)/cypress verify
       
       - name: Run Cypress tests
-        run: npm run test
+        run: npx test:chrome
         continue-on-error: true
       
       - name: Copy test execution videos
@@ -33,10 +33,10 @@ jobs:
           cp -r cypress/videos public/videos
       
       - name: Merge test results into one
-        run: npm run report:merge
+        run: npx run report:merge
       
       - name: Generate HTML report
-        run: npm run report:generate
+        run: npx run report:generate
       
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3

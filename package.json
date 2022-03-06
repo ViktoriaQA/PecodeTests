@@ -4,19 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "test:chrome": "cypress run --browser chrome",
-    "//report:merge": "mochawesome-merge cypress/reports/json/*.json > index.json",
-
-    "report:merge": "mochawesome-merge cypress/reports/*.html > index.html",
-    "report:generate": "marge index.html --reportDir public --assetsDir public/assets --reportPageTitle index.html",
-    
-    "cypress:open": "cypress open",
-    "cypress:runDefault": "cypress run --spec cypress/integration/*.js",
-    "cypress:chrome": "cypress run --browser chrome --spec cypress/integration/*.js",
-    "cypress:edge": "cypress run --browser edge --spec cypress/integration/*.js",
-    "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/integration/*.js --record --key 4bc50df7-5eee-4147-8eb3-ccea611c8d4b"
-  },
+    "cypress": "cypress run",
+    "test:chrome": "cypress run --browser chrome --spec cypress/integration/test.spec.js",
+    "access:chrome": "cypress run --browser chrome --spec cypress/integration/access/*.spec.js",
+    "cypress:chrome": "cypress run --browser chrome --spec cypress/integration/*.spec.js",
+    "cypress:edge": "cypress run --browser edge --spec cypress/integration/*.spec.js"
+   
+  
+ },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ViktoriaQA/PecodeTests.git"

@@ -4,6 +4,8 @@
     "chromeWebSecurity": false,      
     "projectId": "eps1yr",
     "experimentalStudio": true,
+    "screenshotOnRunFailure": true,
+
 
     "reporter": "cypress-mochawesome-reporter",
       "reporterOptions": {
