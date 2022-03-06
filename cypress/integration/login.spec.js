@@ -2,10 +2,10 @@
 import LoginPage from '../support/PageObjects/loginPage';
 const loginPage = new LoginPage();
 
-const baseUrl = Cypress.env('urlBase');
+
 const username = Cypress.env('username')
 const password = Cypress.env('password')
-const registerLoginPage = Cypress.env('urlBase')+'/qa-portal/registerlogin/registerlogin.php';
+const registerLoginPage = '/qa-portal/registerlogin/registerlogin.php';
 
 const message_successfully = 'Successfully'
 const message_username = "Please enter username."
@@ -23,7 +23,7 @@ const img_logo = 'https://pecode-software.web.app/static/media/icon-logo.f8576d0
 describe ('Login Pecode Tests', function(){
 
   beforeEach('Login Page', () => {
-    cy.visit(registerLoginPage)
+    cy.visit('/qa-portal/registerlogin/registerlogin.php')
     // cy.fixture('users').then(function (user) {
     //   this.user = user;
     // })

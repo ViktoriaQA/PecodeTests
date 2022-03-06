@@ -5,7 +5,8 @@
 
     "projectId": "eps1yr",
     "chromeWebSecurity": false,       
-    "urlBase":"https://www.pecodesoftware.com",
+    "baseUrl":"https://www.pecodesoftware.com",
+    
     "username":"Franc",
     "password":"test",
 
