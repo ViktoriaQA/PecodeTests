@@ -24,7 +24,7 @@ jobs:
           $(npm bin)/cypress verify
       
       - name: Run Cypress tests
-        run: npx test:chrome
+        run: npm test:chrome
         continue-on-error: true
       
       - name: Copy test execution videos
