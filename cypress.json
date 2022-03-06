@@ -1,25 +1,18 @@
 
-{
-    "reporter": "cypress-multi-reporters",
-    "reporterOptions": {
-        "configFile": "reporter-config.json"
-    },
-
-    "videoCompression": 15,
-
+ {
     "viewportWidth": 1240,
     "viewportHeight": 960,
 
     "projectId": "eps1yr",
-    "chromeWebSecurity": false,
-    "//reporter": "cypress-mochawesome-reporter",
-       
-    "env": {
-      "urlBase":"https://www.pecodesoftware.com",
-  
-      "username":"Franc",
-      "password":"teat"
-  
-      
-    }
+    "chromeWebSecurity": false,       
+    "urlBase":"https://www.pecodesoftware.com",
+    "username":"Franc",
+    "password":"test",
+
+    "reporter": "cypress-mochawesome-reporter",
+      "reporterOptions": {
+        "reportDir": "cypress/report",
+        "charts": true,
+        "reportPageTitle": "custom-title"
+      }
   }
