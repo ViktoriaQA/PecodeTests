@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cypress": "cypress run",
-    "test:chrome": "cypress run --browser chrome --spec cypress/integration/test.spec.js",
+    "test": "cypress run --spec cypress/integration/test.spec.js",
     "access:chrome": "cypress run --browser chrome --spec cypress/integration/access/*.spec.js",
     "cypress:chrome": "cypress run --browser chrome --spec cypress/integration/*.spec.js",
     "cypress:edge": "cypress run --browser edge --spec cypress/integration/*.spec.js"
