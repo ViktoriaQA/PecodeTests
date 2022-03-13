@@ -20,7 +20,7 @@ const password_text ="Password"
 
 const img_logo = 'https://pecode-software.web.app/static/media/icon-logo.f8576d05.svg'
 
-describe ('Login Pecode Tests', function(){
+describe ('Access Tests file', function(){
 
   beforeEach('Login Page', () => {
     cy.visit('/qa-portal/registerlogin/registerlogin.php')
