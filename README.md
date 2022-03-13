@@ -1,4 +1,5 @@
+Tests Resulting
+[![Generate Cypress Report](https://github.com/ViktoriaQA/PecodeTests/actions/workflows/main.yml/badge.svg)](https://github.com/ViktoriaQA/PecodeTests/actions/workflows/main.yml)
 
-
-# Pecode reporting
+# Pecode Reporting
 https://viktoriaqa.github.io/PecodeTests/
