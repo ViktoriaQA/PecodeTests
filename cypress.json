@@ -1,20 +1,9 @@
-
- {
+  {
     "baseUrl":"https://www.pecodesoftware.com",
-    "chromeWebSecurity": false,      
-    "projectId": "eps1yr",
-    "experimentalStudio": true,
-    "screenshotOnRunFailure": true,
-
-
-    "reporter": "cypress-mochawesome-reporter",
-      "reporterOptions": {
-        "reportDir": "cypress/reports",
-        "charts": true,
-        "reportPageTitle": "Pecode test",
-        "embeddedScreenshots": true
-      },
-        
-      "username":"Franc",
-      "password":"test"  
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "overwrite": false,
+        "html": false,
+        "json": true
+    }
   }
