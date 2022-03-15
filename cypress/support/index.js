@@ -24,6 +24,7 @@ Cypress.on("test:after:run", (test, runnable) => {
     const videoUrl = 'videos/' + videoName + '.mp4'
 
     addContext({ test }, videoUrl)
+    
 });
 
 // Alternatively you can use CommonJS syntax:
