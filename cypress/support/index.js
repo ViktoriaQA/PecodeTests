@@ -19,12 +19,19 @@ import addContext from 'mochawesome/addContext'
 
 Cypress.on("test:after:run", (test, runnable) => {
 
-    let videoName = Cypress.spec.name
-    videoName = videoName.replace('/.js.*', '.js')
-    const videoUrl = 'videos/' + videoName + '.mp4'
+    // // let videoName = Cypress.spec.name
+    // // videoName = videoName.replace('/.js.*', '.js')
+    // // const videoUrl = 'videos/' + videoName + '.mp4'
 
-    addContext({ test }, videoUrl)
+    // // addContext({ test }, videoUrl)
     
+    if (test.state === 'failed'){ 
+        let screenshotName = Cypress.spec.name;
+        screenshotName = screenshot.replace('/.js.*', '.js')
+        const screenshotUrl = 'screenshots/' + screenshotName + '.png'
+        addContext({ test }, screenshotUrl )  
+      }
+
 });
 
 // Alternatively you can use CommonJS syntax:
