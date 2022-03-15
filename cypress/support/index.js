@@ -26,9 +26,9 @@ Cypress.on("test:after:run", (test, runnable) => {
 
     if (test.state === "failed") {    
         // example to-do app 15/03/22 23:37 -- displays two todo items by default (failed).png  
-        //const screenshot =`assets/${Cypress.spec.name}/${runnable.parent.title.replaceAll('/', '').replaceAll(':', '')} -- ${test.title} (failed).png`;    
+        //const screenshot =`screenshots/${Cypress.spec.name}/${runnable.parent.title.replaceAll('/', '').replaceAll(':', '')} -- ${test.title} (failed).png`;    
         
-        const screenshot =`assets/${Cypress.spec.name}/${runnable.parent.title.replaceAll(/[/]|[:]/g, '')} -- ${test.title} (failed).png`;
+        const screenshot =`screenshots/${Cypress.spec.name}/${runnable.parent.title.replaceAll(/[/]|[:]/g, '')} -- ${test.title} (failed).png`;
         addContext({ test }, screenshot); 
     }
 });
