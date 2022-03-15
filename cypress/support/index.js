@@ -24,13 +24,12 @@ Cypress.on("test:after:run", (test, runnable) => {
     // // const videoUrl = 'videos/' + videoName + '.mp4'
 
     // // addContext({ test }, videoUrl)
-    
-    if (test.state === 'failed'){ 
-        let screenshotName = Cypress.spec.name;
-        screenshotName = screenshot.replace('/.js.*', '.js')
-        const screenshotUrl = 'screenshots/' + screenshotName + '.png'
-        addContext({ test }, screenshotUrl )  
-      }
+
+   
+    if (test.state === "failed") {    
+        const screenshot =`assets/${Cypress.spec.name}(failed).png`;    
+        addContext({ test }, screenshot);  
+    }
 
 });
 
